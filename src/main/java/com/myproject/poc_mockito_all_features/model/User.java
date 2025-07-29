@@ -12,4 +12,9 @@ public class User {
     // Getters
     public String getId() { return id; }
     public String getName() { return name; }
+
+    @Override
+    public String toString() {
+        return "User{id='%s', name='%s'}".formatted(id, name);
+    }
 }

@@ -1,4 +1,4 @@
-
+package com.myproject.poc_mockito_all_features.service;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

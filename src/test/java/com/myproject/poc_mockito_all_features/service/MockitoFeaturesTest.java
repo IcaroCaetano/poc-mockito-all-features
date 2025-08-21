@@ -125,6 +125,24 @@ class MockitoFeaturesTest {
         }
     }
 
+    /**
+     * Spies:
+     * Wrap a real object and allow selective stubbing/verification.
+     */
+    @Test
+    void testSpies() {
+        List<String> list = new java.util.ArrayList<>();
+        List<String> spyList = spy(list);
+
+        spyList.add("one");
+        spyList.add("two");
+
+        verify(spyList).add("one");
+        verify(spyList).add("two");
+
+        assertEquals(2, spyList.size());
+    }
+
      /**
      * InOrder verification:
      * Verify methods are called in a specific order.

@@ -137,6 +137,18 @@ class MockitoFeaturesTest {
     }
 
     /**
+     * Exceptions:
+     * Stub methods to throw exceptions.
+     */
+    @Test
+    void testExceptions() {
+        List<String> mockedList = mock(List.class);
+        when(mockedList.get(0)).thenThrow(new RuntimeException("Error"));
+
+        assertThrows(RuntimeException.class, () -> mockedList.get(0));
+    }
+
+    /**
      * Deep stubs:
      * Useful when mocking chained calls (avoids null pointers).
      * Example: mock a map where get() returns another mock automatically.

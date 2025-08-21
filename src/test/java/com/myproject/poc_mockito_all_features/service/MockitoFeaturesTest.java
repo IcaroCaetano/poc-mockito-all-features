@@ -136,6 +136,21 @@ class MockitoFeaturesTest {
         assertEquals("Mocked Final!", finalMock.greet());
     }
 
+    /**
+     * Deep stubs:
+     * Useful when mocking chained calls (avoids null pointers).
+     * Example: mock a map where get() returns another mock automatically.
+     */
+    @Test
+    void testDeepStubs() {
+        Map<String, List<String>> deepStub = mock(Map.class, RETURNS_DEEP_STUBS);
+
+        when(deepStub.get("key").get(0)).thenReturn("deep-value");
+
+        assertEquals("deep-value", deepStub.get("key").get(0));
+    }
+}
+
     /** Example final class for demonstration */
     static final class FinalClass {
         String greet() {

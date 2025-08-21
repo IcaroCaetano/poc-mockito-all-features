@@ -57,6 +57,21 @@ class MockitoFeaturesTest {
         verify(mockedList).get(0);
     }
 
+
+     /**
+     * Basic mocking:
+     * Create a mock object and define its behavior.
+     */
+    @Test
+    void testBasicMocking() {
+        List<String> mockedList = mock(List.class);
+        when(mockedList.get(0)).thenReturn("Hello Mockito");
+
+        assertEquals("Hello Mockito", mockedList.get(0));
+        assertNull(mockedList.get(1)); // Not stubbed
+    }
+
+    
     /**
      * Demonstrates the use of argument matchers.
      */

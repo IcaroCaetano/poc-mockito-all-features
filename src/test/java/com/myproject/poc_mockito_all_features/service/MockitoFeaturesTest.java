@@ -125,6 +125,24 @@ class MockitoFeaturesTest {
         }
     }
 
+     /**
+     * InOrder verification:
+     * Verify methods are called in a specific order.
+     */
+    @Test
+    void testInOrderVerification() {
+        List<String> firstMock = mock(List.class);
+        List<String> secondMock = mock(List.class);
+
+        firstMock.add("one");
+        secondMock.add("two");
+
+        InOrder inOrder = inOrder(firstMock, secondMock);
+        inOrder.verify(firstMock).add("one");
+        inOrder.verify(secondMock).add("two");
+    }
+
+
     /**
      * Demonstrates mocking final classes.
      */
